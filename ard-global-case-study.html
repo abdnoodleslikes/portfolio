@@ -143,6 +143,24 @@ section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
 .foot-name{font-family:var(--serif);font-size:18px;font-weight:700}
 .foot-copy{font-family:var(--mono);font-size:11px;color:var(--ink-dim)}
 
+/* STORY */
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink-faint);margin-top:56px;border:.5px solid var(--ink-faint)}
+.story-cell{background:var(--bg);padding:44px 38px}
+.story-beat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.story-beat-line{height:1px;width:20px;flex-shrink:0}
+.story-beat.before .story-beat-line{background:var(--red)}
+.story-beat.before span{color:var(--red)}
+.story-beat.shift .story-beat-line{background:var(--acc)}
+.story-beat.shift span{color:var(--acc)}
+.story-beat.after .story-beat-line{background:var(--grn)}
+.story-beat.after span{color:var(--grn)}
+.story-heading{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.15;margin-bottom:18px;letter-spacing:-.01em}
+.story-body{font-size:15px;color:rgba(238,233,224,.66);line-height:1.75}
+.story-body p+p{margin-top:14px}
+.story-pull{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--ink-dim);border-left:2px solid var(--acc);padding-left:18px;margin-top:22px;line-height:1.5}
+.story-pull.grn{border-left-color:var(--grn)}
+.story-pull.red{border-left-color:var(--red)}
+
 @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 @media(max-width:960px){
@@ -151,6 +169,7 @@ section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
   .cap-grid{grid-template-columns:1fr}
   .met-grid{grid-template-columns:1fr 1fr}
   .diag-split{grid-template-columns:1fr;gap:40px}
+  .story-grid{grid-template-columns:1fr}
   .hero-title{font-size:60px}
 }
 @media(max-width:600px){
@@ -214,10 +233,54 @@ section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
   </div>
 </section>
 
+<!-- ═══ STORY ════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>02</span> The Story</div>
+    <h2 class="s-title">Before, during,<br><em>and after</em></h2>
+    <div class="story-grid">
+
+      <div class="story-cell">
+        <div class="story-beat before"><div class="story-beat-line"></div><span>Before</span></div>
+        <div class="story-heading">HR buried under its own paperwork</div>
+        <div class="story-body">
+          <p>At a company the size of ARD Global — hundreds of employees across multiple sites — HR was drowning. Not because the team wasn't capable, but because almost everything ran on manual effort and institutional memory.</p>
+          <p>An employee wanting to know their leave balance had to call HR, wait to get through, and hope whoever answered had the spreadsheet open. Leave requests went through WhatsApp messages to managers, then got noted somewhere, then sometimes got lost. Attendance was tracked from fingerprint machine exports that someone had to download, read, and manually flag.</p>
+          <p>Late arrivals were inconsistently handled — sometimes messaged, sometimes not, with no running count, no standard process, and no paper trail. Policy questions either went unanswered or required the HR manager's direct attention for things that were already written in a document nobody could easily access.</p>
+        </div>
+        <div class="story-pull red">The HR team was spending most of their time being a lookup service for information that already existed — just not in a form anyone could reach.</div>
+      </div>
+
+      <div class="story-cell">
+        <div class="story-beat shift"><div class="story-beat-line"></div><span>The shift</span></div>
+        <div class="story-heading">The channel was already there. The intelligence wasn't.</div>
+        <div class="story-body">
+          <p>Every employee at ARD Global was already on WhatsApp. It was how they communicated with managers, with colleagues, with family — it was the default interface for everything. Any solution that required installing something new, logging into a portal, or learning a system was going to fail on adoption before it ever got started.</p>
+          <p>The insight was to treat WhatsApp not as a messaging app but as the interface layer for a complete HR backend. The channel was already trusted and habitual — what it needed was intelligence behind it.</p>
+          <p>But building for a Pakistani workforce meant the system had to genuinely understand how people actually communicate — switching between Urdu, English, and Punjabi mid-sentence, sending voice notes instead of typing, using informal phrasing for formal requests. A rigid keyword-matching bot would fail immediately. It needed to actually understand intent.</p>
+        </div>
+        <div class="story-pull">The solution wasn't to change how employees interacted with HR. It was to make HR intelligent enough to meet them exactly where they already were.</div>
+      </div>
+
+      <div class="story-cell">
+        <div class="story-beat after"><div class="story-beat-line"></div><span>After</span></div>
+        <div class="story-heading">One number handles what used to take a team</div>
+        <div class="story-body">
+          <p>Now an employee who wants to know their leave balance sends a WhatsApp message and gets an accurate answer in seconds — in whatever language they asked in. A leave request goes through the same conversation, gets checked against the live record, reaches the manager automatically, and comes back confirmed or denied without the HR team touching it.</p>
+          <p>When someone clocks in nine minutes late, a message is waiting on their phone before they've reached their desk — with their running monthly count, consistent across the entire organisation, every single time. No exceptions for people who happened to walk past a manager who didn't notice.</p>
+          <p>The HR team went from fielding the same five questions fifty times a day to doing actual HR work: handling edge cases, supporting employees through complex situations, and focusing on the parts of their job that actually required a human.</p>
+        </div>
+        <div class="story-pull grn">From a reactive, phone-based service buried in repetition — to a 24/7 intelligent layer that the workforce adopted without a single training session.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ═══ CAPABILITIES ══════════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <div class="s-label"><span>02</span> What it does</div>
+    <div class="s-label"><span>03</span> What it does</div>
     <h2 class="s-title">Four systems,<br><em>one number</em></h2>
     <p style="color:var(--ink-dim);max-width:520px;font-size:16px;margin-top:-6px;">Each capability operates independently but shares the same WhatsApp interface, employee context, and language understanding layer.</p>
 
@@ -277,7 +340,7 @@ section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
 <!-- ═══ FLOW DIAGRAMS ══════════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <div class="s-label"><span>03</span> System Logic</div>
+    <div class="s-label"><span>04</span> System Logic</div>
     <h2 class="s-title">How the decisions<br><em>actually flow</em></h2>
     <p style="color:var(--ink-dim);max-width:520px;font-size:16px;margin-top:-6px;">The two most complex flows — leave management and attendance tracking — mapped end to end.</p>
 
@@ -477,7 +540,7 @@ section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
 <!-- ═══ WHATSAPP PREVIEW ═══════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <div class="s-label"><span>04</span> In Practice</div>
+    <div class="s-label"><span>05</span> In Practice</div>
     <h2 class="s-title">What it looks like<br><em>for an employee</em></h2>
     <p style="color:var(--ink-dim);max-width:520px;font-size:16px;margin-top:-6px;">The entire system operates inside a single WhatsApp thread. No portals, no forms, no logins.</p>
 
@@ -561,7 +624,7 @@ section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
 <!-- ═══ METRICS ═══════════════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <div class="s-label"><span>05</span> Results</div>
+    <div class="s-label"><span>06</span> Results</div>
     <h2 class="s-title">What changed<br><em>after launch</em></h2>
     <div class="met-grid">
       <div class="met-cell">
@@ -591,7 +654,7 @@ section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
 <!-- ═══ STACK ══════════════════════════════════════════════════════════ -->
 <section style="border-bottom:none">
   <div class="wrap">
-    <div class="s-label"><span>06</span> Technical Stack</div>
+    <div class="s-label"><span>07</span> Technical Stack</div>
     <h2 class="s-title">The infrastructure<br><em>underneath</em></h2>
     <p style="color:var(--ink-dim);max-width:520px;font-size:16px;">Built to be reliable at scale, with WhatsApp as the interface layer and n8n orchestrating every workflow behind it.</p>
     <div class="stack-grid">
@@ -629,6 +692,10 @@ section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
     });
   }, { threshold: 0.07 });
 
+  document.querySelectorAll('.story-cell').forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateY(14px);transition:opacity .6s ${i*.12}s ease,transform .6s ${i*.12}s ease`;
+    io.observe(el);
+  });
   document.querySelectorAll('.met-cell').forEach((el, i) => {
     el.style.cssText = `opacity:0;transform:translateY(16px);transition:opacity .6s ${i*.09}s ease,transform .6s ${i*.09}s ease`;
     io.observe(el);

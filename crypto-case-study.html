@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ethereum.pk — Content Automation · Abdullah Mustafa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#ECE8FF;
+  --ink-dim:rgba(236,232,255,0.42);
+  --ink-faint:rgba(236,232,255,0.10);
+  --bg:#08080F;
+  --bg2:#0F0F1A;
+  --bg3:#141420;
+  --acc:#7C5CF3;
+  --acc-dim:rgba(124,92,243,0.13);
+  --acc-border:rgba(124,92,243,0.32);
+  --acc2:#00D4AA;
+  --acc2-dim:rgba(0,212,170,0.10);
+  --acc2-border:rgba(0,212,170,0.28);
+  --gold:#F5C542;
+  --gold-dim:rgba(245,197,66,0.10);
+  --red:#E85B5B;
+  --red-dim:rgba(232,91,91,0.10);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+  --max:1120px;
+  --g:52px;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.75;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--acc);color:#fff}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
+
+/* ── HERO ── */
+.hero{padding:88px 0 108px;border-bottom:.5px solid var(--ink-faint);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-300px;right:-200px;width:720px;height:720px;background:radial-gradient(circle at center,rgba(124,92,243,0.07) 0%,transparent 66%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:360px;height:360px;background:radial-gradient(circle at center,rgba(0,212,170,0.04) 0%,transparent 70%);pointer-events:none}
+
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--acc);text-transform:uppercase;margin-bottom:38px;display:flex;align-items:center;gap:14px;opacity:0;animation:fu .7s .05s cubic-bezier(.16,1,.3,1) forwards}
+.eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--acc);flex-shrink:0}
+
+.hero-logos{display:flex;align-items:center;gap:16px;margin-bottom:32px;opacity:0;animation:fu .7s .12s cubic-bezier(.16,1,.3,1) forwards}
+.logo-pill{font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:7px 16px;border-radius:3px;font-weight:500}
+.logo-pill.eth{background:var(--acc-dim);border:.5px solid var(--acc-border);color:var(--acc)}
+.logo-pill.cry{background:var(--acc2-dim);border:.5px solid var(--acc2-border);color:var(--acc2)}
+.logo-sep{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+
+.hero-title{font-family:var(--serif);font-weight:900;font-size:clamp(60px,11vw,138px);line-height:.9;letter-spacing:-.025em;margin-bottom:28px;opacity:0;animation:fu .8s .2s cubic-bezier(.16,1,.3,1) forwards}
+.hero-title em{font-style:italic;color:var(--acc)}
+.hero-title .t2{color:var(--acc2)}
+.hero-sub{font-family:var(--serif);font-size:clamp(18px,2.2vw,25px);font-weight:300;font-style:italic;color:var(--ink-dim);max-width:580px;margin-bottom:60px;line-height:1.45;opacity:0;animation:fu .8s .28s cubic-bezier(.16,1,.3,1) forwards}
+.hero-meta{display:flex;gap:36px;flex-wrap:wrap;align-items:center;opacity:0;animation:fu .8s .36s cubic-bezier(.16,1,.3,1) forwards}
+.m-item{display:flex;flex-direction:column;gap:5px}
+.m-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim)}
+.m-val{font-size:15px;font-weight:500;color:var(--ink)}
+.m-sep{width:1px;height:38px;background:var(--ink-faint)}
+
+/* ── SECTIONS ── */
+section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
+.s-label{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.s-label span{color:var(--acc)}
+.s-title{font-family:var(--serif);font-weight:700;font-size:clamp(32px,4.5vw,52px);line-height:1.08;letter-spacing:-.02em;margin-bottom:34px}
+.s-title em{font-style:italic;color:var(--acc)}
+
+/* ── OVERVIEW ── */
+.ov-grid{display:grid;grid-template-columns:1fr 292px;gap:80px;align-items:start}
+.ov-body{font-size:17px;line-height:1.8;color:rgba(236,232,255,.75)}
+.ov-body p+p{margin-top:22px}
+.callout{background:var(--bg3);border:.5px solid var(--ink-faint);border-left:2px solid var(--acc);padding:28px 26px;border-radius:2px}
+.callout+.callout{margin-top:12px}
+.callout.teal{border-left-color:var(--acc2)}
+.callout.gold{border-left-color:var(--gold)}
+.callout-n{font-family:var(--serif);font-size:58px;font-weight:900;line-height:1;color:var(--acc);margin-bottom:10px}
+.callout.teal .callout-n{color:var(--acc2)}
+.callout.gold .callout-n{color:var(--gold);font-size:46px}
+.callout-l{font-size:13.5px;color:var(--ink-dim);line-height:1.55}
+
+/* ── PIPELINE / FLOW ── */
+.flow-outer{margin-top:52px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.flow-svg{display:block;min-width:900px}
+
+/* ── SEO SECTION ── */
+.seo-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:56px;align-items:start}
+.seo-body{font-size:16.5px;color:rgba(236,232,255,.72)}
+.seo-body p+p{margin-top:18px}
+.seo-steps{display:flex;flex-direction:column;gap:0;margin-top:32px;border:.5px solid var(--ink-faint);border-radius:3px;overflow:hidden}
+.seo-step{display:grid;grid-template-columns:44px 1fr;align-items:stretch;border-bottom:.5px solid var(--ink-faint)}
+.seo-step:last-child{border-bottom:none}
+.seo-num{background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--acc);border-right:.5px solid var(--ink-faint);padding:18px 0;letter-spacing:.06em}
+.seo-content{padding:16px 20px}
+.seo-step-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.seo-step-body{font-size:13px;color:var(--ink-dim);line-height:1.55}
+
+/* Blog card mockup */
+.blog-mock{background:var(--bg2);border:.5px solid var(--ink-faint);border-radius:4px;overflow:hidden}
+.blog-mock-bar{background:var(--bg3);border-bottom:.5px solid var(--ink-faint);padding:11px 16px;display:flex;align-items:center;justify-content:space-between}
+.blog-mock-title{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-dim)}
+.blog-status{font-family:var(--mono);font-size:9.5px;display:flex;align-items:center;gap:6px}
+.status-dot{width:5px;height:5px;border-radius:50%}
+.status-dot.ready{background:var(--acc2);animation:pulse 2s ease-in-out infinite}
+.status-dot.review{background:var(--gold);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.blog-list{display:flex;flex-direction:column}
+.blog-item{padding:16px 18px;border-bottom:.5px solid var(--ink-faint);display:flex;flex-direction:column;gap:6px}
+.blog-item:last-child{border-bottom:none}
+.blog-item-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.blog-item-title{font-size:13px;font-weight:500;color:var(--ink);line-height:1.35;flex:1}
+.blog-tag{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0}
+.blog-tag.ready{background:var(--acc2-dim);color:var(--acc2);border:.5px solid var(--acc2-border)}
+.blog-tag.review{background:var(--gold-dim);color:var(--gold)}
+.blog-tag.pub{background:rgba(124,92,243,.12);color:var(--acc)}
+.blog-meta-row{display:flex;align-items:center;gap:12px}
+.blog-meta-item{font-family:var(--mono);font-size:9.5px;color:var(--ink-dim);display:flex;align-items:center;gap:4px}
+.blog-meta-item .dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint)}
+.seo-score{display:flex;align-items:center;gap:5px}
+.seo-bar{width:48px;height:3px;border-radius:2px;background:var(--ink-faint);overflow:hidden}
+.seo-bar-fill{height:100%;border-radius:2px}
+.seo-bar-fill.hi{background:var(--acc2);width:92%}
+.seo-bar-fill.md{background:var(--gold);width:78%}
+.seo-bar-fill.lo{background:var(--acc);width:85%}
+.seo-score-n{font-size:9.5px;color:var(--ink-dim);font-family:var(--mono)}
+
+.publish-btn-row{padding:14px 18px;border-top:.5px solid var(--ink-faint);display:flex;align-items:center;gap:10px}
+.pub-btn{background:var(--acc);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:9px 18px;border-radius:3px;border:none;cursor:pointer;transition:opacity .2s;display:flex;align-items:center;gap:7px}
+.pub-btn:hover{opacity:.85}
+.pub-btn-note{font-family:var(--mono);font-size:10px;color:var(--ink-dim)}
+
+/* ── METRICS ── */
+.met-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink-faint);margin-top:56px;border:.5px solid var(--ink-faint)}
+.met-cell{background:var(--bg);padding:42px 32px}
+.met-n{font-family:var(--serif);font-size:clamp(42px,5vw,64px);font-weight:900;line-height:1;color:var(--ink);margin-bottom:13px;letter-spacing:-.02em}
+.met-n .a{color:var(--acc)}
+.met-n .t{color:var(--acc2)}
+.met-n .g{color:var(--gold)}
+.met-d{font-size:13px;color:var(--ink-dim);line-height:1.6;font-family:var(--mono)}
+.met-tag{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10.5px;padding:3px 9px;border-radius:2px;margin-top:12px}
+.met-tag.dn{background:var(--acc-dim);color:var(--acc)}
+.met-tag.up{background:var(--acc2-dim);color:var(--acc2)}
+.met-tag.gd{background:var(--gold-dim);color:var(--gold)}
+
+/* ── STACK ── */
+.stack-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:42px}
+.s-tag{font-family:var(--mono);font-size:11.5px;padding:8px 14px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim);letter-spacing:.04em;transition:border-color .2s,color .2s;cursor:default}
+.s-tag:hover{border-color:var(--acc-border);color:var(--acc)}
+
+/* ── FOOTER ── */
+.foot{padding:52px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot-name{font-family:var(--serif);font-size:18px;font-weight:700}
+.foot-copy{font-family:var(--mono);font-size:11px;color:var(--ink-dim)}
+
+/* ── STORY ── */
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink-faint);margin-top:56px;border:.5px solid var(--ink-faint)}
+.story-cell{background:var(--bg);padding:44px 38px;position:relative}
+.story-beat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.story-beat-line{height:1px;width:20px;flex-shrink:0}
+.story-beat.before .story-beat-line{background:var(--red)}
+.story-beat.before span{color:var(--red)}
+.story-beat.shift .story-beat-line{background:var(--acc)}
+.story-beat.shift span{color:var(--acc)}
+.story-beat.after .story-beat-line{background:var(--acc2)}
+.story-beat.after span{color:var(--acc2)}
+.story-heading{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.15;margin-bottom:18px;letter-spacing:-.01em}
+.story-body{font-size:15px;color:rgba(236,232,255,.68);line-height:1.75}
+.story-body p+p{margin-top:14px}
+.story-pull{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--ink-dim);border-left:2px solid var(--acc);padding-left:18px;margin-top:22px;line-height:1.5}
+.story-pull.teal{border-left-color:var(--acc2)}
+
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:960px){
+  :root{--g:28px}
+  .ov-grid,.seo-grid{grid-template-columns:1fr;gap:44px}
+  .met-grid{grid-template-columns:1fr 1fr}
+  .story-grid{grid-template-columns:1fr}
+  .hero-title{font-size:62px}
+}
+@media(max-width:600px){
+  .met-grid{grid-template-columns:1fr}
+  .hero-title{font-size:46px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Case Study &nbsp;·&nbsp; Content Automation &amp; SEO</div>
+    <div class="hero-logos">
+      <span class="logo-pill eth">ethereum.pk</span>
+      <span class="logo-sep">&</span>
+      <span class="logo-pill cry">crypto.pk</span>
+    </div>
+    <h1 class="hero-title">Daily content,<br><em>fully</em> on<br><span class="t2">autopilot</span></h1>
+    <p class="hero-sub">Every morning, the system wakes up before the team does — scraping, analysing, writing, and optimising an entire day's content, ready for one human click to go live.</p>
+    <div class="hero-meta">
+      <div class="m-item"><span class="m-lbl">Client</span><span class="m-val">ethereum.pk · crypto.pk</span></div>
+      <div class="m-sep"></div>
+      <div class="m-item"><span class="m-lbl">Role</span><span class="m-val">Automation Architect</span></div>
+      <div class="m-sep"></div>
+      <div class="m-item"><span class="m-lbl">Scope</span><span class="m-val">Scraping · AI Writing · SEO · CMS</span></div>
+      <div class="m-sep"></div>
+      <div class="m-item"><span class="m-lbl">Year</span><span class="m-val">2025</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ OVERVIEW ══════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>01</span> Overview</div>
+    <div class="ov-grid">
+      <div>
+        <h2 class="s-title">Publishing daily content<br><em>manually doesn't scale</em></h2>
+        <div class="ov-body">
+          <p>ethereum.pk and crypto.pk are Pakistan's dedicated crypto media properties — covering prices, market movements, news, and analysis for a Pakistani audience. In a market where news moves in seconds, publishing a fresh, well-researched, SEO-optimised blog every morning was taking the team the better part of a day. Research, writing, formatting, keyword optimisation, price predictions — each piece was a full workflow in itself.</p>
+          <p>The brief: automate the entire content pipeline end-to-end. Every morning, without any human starting it, the system should scan everything — crypto news sources, social media, on-chain signals, market data, public sentiment on Twitter — synthesise what matters, and produce a fully formed, SEO-optimised blog post and price prediction ready to publish.</p>
+          <p>The human's job was reduced to a single action: read the draft, and press publish. Not write, not research, not format, not optimise. Just approve.</p>
+        </div>
+      </div>
+      <div>
+        <div class="callout">
+          <div class="callout-n">6 AM</div>
+          <div class="callout-l">The pipeline fires automatically every morning. By the time the team arrives, a fully written, SEO-scored blog post is waiting for review — sourced, written, and optimised overnight.</div>
+        </div>
+        <div class="callout teal">
+          <div class="callout-n">100%</div>
+          <div class="callout-l">Of published posts go through the SEO optimiser before reaching the database — keyword density, meta descriptions, heading structure, internal linking, and readability all scored and refined automatically.</div>
+        </div>
+        <div class="callout gold">
+          <div class="callout-n">1 click</div>
+          <div class="callout-l">The only human action in the entire pipeline — review and publish. Everything else from data collection to formatted CMS entry is handled by the system.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ STORY ════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>02</span> The Story</div>
+    <h2 class="s-title">Before, during,<br><em>and after</em></h2>
+    <div class="story-grid">
+
+      <div class="story-cell">
+        <div class="story-beat before"><div class="story-beat-line"></div><span>Before</span></div>
+        <div class="story-heading">A content team doing the work of a machine</div>
+        <div class="story-body">
+          <p>Every morning started the same way. Someone would open ten browser tabs — CoinDesk, CoinTelegraph, Twitter, Reddit — and spend an hour just figuring out what had happened overnight. What moved. What people were talking about. What was worth writing about.</p>
+          <p>Then came the writing. Research notes stitched into a draft. Keywords guessed at. Meta descriptions added as an afterthought. The whole thing formatted manually before being pasted into the CMS.</p>
+          <p>On a good day, one post was live by early afternoon. On a bad day — a busy news cycle, a team member out — nothing published at all. Consistency, the single most important factor in SEO, was impossible to guarantee.</p>
+        </div>
+        <div class="story-pull">A full working day to produce one post. And the moment it went live, the news had already moved on.</div>
+      </div>
+
+      <div class="story-cell">
+        <div class="story-beat shift"><div class="story-beat-line"></div><span>The shift</span></div>
+        <div class="story-heading">The problem wasn't effort. It was architecture.</div>
+        <div class="story-body">
+          <p>The team wasn't doing bad work — they were doing human work that shouldn't have required a human. Scraping sources, compiling data, identifying what's trending: these are pattern-recognition tasks that a machine does faster, more comprehensively, and without getting tired.</p>
+          <p>The real value the team brought — editorial judgement, understanding what a Pakistani crypto audience cares about, knowing when a story is genuinely significant — was buried under six hours of prep work per post.</p>
+          <p>The decision was to strip every mechanical task out of the human workflow and replace it with an automated pipeline. Not AI writing for the sake of it — but a system designed to do the boring parts perfectly so the humans could focus on the only thing that actually required them: deciding whether to publish.</p>
+        </div>
+        <div class="story-pull">The goal was never to replace the team. It was to give them back their time for the work only they could do.</div>
+      </div>
+
+      <div class="story-cell">
+        <div class="story-beat after"><div class="story-beat-line"></div><span>After</span></div>
+        <div class="story-heading">The system runs. The team reviews. Content ships.</div>
+        <div class="story-body">
+          <p>At 6 AM every morning, the pipeline fires without anyone touching it. By the time the first team member opens their laptop, a fully written, SEO-scored blog post and price prediction are sitting in the content queue — sourced from dozens of live data points, written to a consistent standard, and ready to go.</p>
+          <p>The team's morning now looks completely different. They read the draft. They check the SEO score. If it clears the threshold, they press publish. Ten minutes, start to finish.</p>
+          <p>No missed days. No 3 PM posts that catch nobody. No posts that never got written because the morning was chaotic. The pipeline doesn't have bad days.</p>
+        </div>
+        <div class="story-pull teal">From a full day of production work to a ten-minute morning review — every single day, without exception.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PIPELINE ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>03</span> The Pipeline</div>
+    <h2 class="s-title">From the internet<br><em>to the database</em></h2>
+    <p style="color:var(--ink-dim);max-width:540px;font-size:16px;margin-top:-6px;">Seven stages. Zero human involvement until the final review. Runs on a 6 AM cron trigger every day.</p>
+  </div>
+
+  <div class="flow-outer">
+    <div class="wrap">
+<!--
+  ViewBox: 960 × 400
+  Row 1  (y=48, h=60): 5 nodes  cx: 96 230 364 498 632
+  Row 2  (y=228, h=60): 2 nodes  cx: 364 / 730 → centred as output nodes
+  Routing lane y=178 between rows
+-->
+<svg class="flow-svg" viewBox="0 0 960 410" xmlns="http://www.w3.org/2000/svg" width="100%">
+<defs>
+  <marker id="m0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+    <path d="M1 1L9 5L1 9" fill="none" stroke="#3A3850" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <marker id="ma" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+    <path d="M1 1L9 5L1 9" fill="none" stroke="#7C5CF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <marker id="mt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+    <path d="M1 1L9 5L1 9" fill="none" stroke="#00D4AA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+    <path d="M1 1L9 5L1 9" fill="none" stroke="#F5C542" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<!-- ── ROW 1: Five pipeline stages ────────────────────────────── -->
+
+<!-- 01 Cron Trigger -->
+<rect x="36"  y="48" width="120" height="60" rx="2.5" fill="#14142080" stroke="#28283A" stroke-width=".5"/>
+<text x="96"  y="72"  text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(124,92,243,.65)" letter-spacing=".1em">TRIGGER</text>
+<text x="96"  y="88"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">6 AM Cron</text>
+<text x="96"  y="102" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">Schedule</text>
+<text x="96"  y="123" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(236,232,255,.2)">daily · automatic</text>
+
+<!-- 02 Data Scraping -->
+<rect x="170" y="48" width="120" height="60" rx="2.5" fill="#14142080" stroke="#28283A" stroke-width=".5"/>
+<text x="230" y="72"  text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(124,92,243,.65)" letter-spacing=".1em">STEP 01</text>
+<text x="230" y="88"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">Web + Twitter</text>
+<text x="230" y="102" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">Scraping</text>
+<text x="230" y="123" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(236,232,255,.2)">news · prices · sentiment</text>
+
+<!-- 03 Sentiment + Compile -->
+<rect x="304" y="48" width="120" height="60" rx="2.5" fill="#14142080" stroke="#28283A" stroke-width=".5"/>
+<text x="364" y="72"  text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(124,92,243,.65)" letter-spacing=".1em">STEP 02</text>
+<text x="364" y="88"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">Sentiment &</text>
+<text x="364" y="102" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">Compilation</text>
+<text x="364" y="123" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(236,232,255,.2)">AI-analysed · structured</text>
+
+<!-- 04 AI Writing -->
+<rect x="438" y="48" width="120" height="60" rx="2.5" fill="#12102A" stroke="#7C5CF3" stroke-width=".8"/>
+<text x="498" y="72"  text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(124,92,243,.9)" letter-spacing=".1em">STEP 03</text>
+<text x="498" y="88"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">AI Content</text>
+<text x="498" y="102" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">Writing</text>
+<text x="498" y="123" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(236,232,255,.2)">blog + price prediction</text>
+
+<!-- 05 SEO Optimizer -->
+<rect x="572" y="48" width="120" height="60" rx="2.5" fill="#0A1A16" stroke="#00D4AA" stroke-width=".8"/>
+<text x="632" y="72"  text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(0,212,170,.9)" letter-spacing=".1em">STEP 04</text>
+<text x="632" y="88"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">SEO</text>
+<text x="632" y="102" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">Optimiser</text>
+<text x="632" y="123" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(236,232,255,.2)">curated · multi-pass</text>
+
+<!-- Row 1 arrows -->
+<line x1="156" y1="78" x2="168" y2="78" stroke="#3A3850" stroke-width=".8" marker-end="url(#m0)"/>
+<line x1="290" y1="78" x2="302" y2="78" stroke="#3A3850" stroke-width=".8" marker-end="url(#m0)"/>
+<line x1="424" y1="78" x2="436" y2="78" stroke="#7C5CF3" stroke-width=".8" opacity=".55" marker-end="url(#ma)"/>
+<line x1="558" y1="78" x2="570" y2="78" stroke="#7C5CF3" stroke-width=".8" opacity=".55" marker-end="url(#ma)"/>
+
+<!-- ── ROW 2: Two output streams ──────────────────────────────── -->
+<!-- SEO → splits down to Blog DB (left) and Prediction DB (right) -->
+<!-- Routing: down from cx=632 y=108 → y=175 → split -->
+
+<line x1="632" y1="108" x2="632" y2="174" stroke="#3A3850" stroke-width=".8" opacity=".6"/>
+<!-- left branch to Blog DB cx=430 -->
+<path d="M632,174 L430,174 L430,224" fill="none" stroke="#00D4AA" stroke-width=".8" opacity=".6" marker-end="url(#mt)"/>
+<text x="526" y="165" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(0,212,170,.65)">daily blog</text>
+<!-- right branch to Price DB cx=750 -->
+<path d="M632,174 L750,174 L750,224" fill="none" stroke="#7C5CF3" stroke-width=".8" opacity=".6" marker-end="url(#ma)"/>
+<text x="696" y="165" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(124,92,243,.65)">price prediction</text>
+
+<!-- Blog Database node -->
+<rect x="370" y="226" width="120" height="60" rx="2.5" fill="#081814" stroke="#00D4AA" stroke-width=".8"/>
+<text x="430" y="250" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(0,212,170,.9)" letter-spacing=".1em">STEP 05a</text>
+<text x="430" y="266" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">Blog pushed</text>
+<text x="430" y="280" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">to database</text>
+<text x="430" y="301" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(236,232,255,.2)">CMS-ready · formatted</text>
+
+<!-- Price Prediction node -->
+<rect x="690" y="226" width="120" height="60" rx="2.5" fill="#12102A" stroke="#7C5CF3" stroke-width=".8"/>
+<text x="750" y="250" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(124,92,243,.9)" letter-spacing=".1em">STEP 05b</text>
+<text x="750" y="266" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">Prediction</text>
+<text x="750" y="280" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12.5" font-weight="500" fill="#ECE8FF">pushed to DB</text>
+<text x="750" y="301" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" fill="rgba(236,232,255,.2)">BTC · ETH · top movers</text>
+
+<!-- Both merge into Human Review -->
+<!-- Blog → down to y=355, then right to Human Review cx=590 -->
+<path d="M430,286 L430,345 L590,345" fill="none" stroke="#3A3850" stroke-width=".7" opacity=".5"/>
+<!-- Price → down to y=355, then left to same -->
+<path d="M750,286 L750,345 L750,345" fill="none" stroke="#3A3850" stroke-width=".7" opacity=".5"/>
+<!-- combine horizontal -->
+<path d="M590,345 L750,345" fill="none" stroke="#3A3850" stroke-width=".7" opacity=".5"/>
+<line x1="670" y1="345" x2="670" y2="355" stroke="#F5C542" stroke-width=".8" opacity=".7" marker-end="url(#mg)"/>
+
+<!-- Human Review node -->
+<rect x="584" y="357" width="172" height="38" rx="2.5" fill="#1A1608" stroke="#F5C542" stroke-width=".8"/>
+<text x="670" y="372" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#ECE8FF">Human review</text>
+<text x="670" y="387" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(245,197,66,.75)">one click to publish</text>
+
+<!-- Legend -->
+<line x1="36"  y1="393" x2="56"  y2="393" stroke="#00D4AA" stroke-width="1.2"/>
+<text x="62"  y="397" font-family="'DM Mono',monospace" font-size="9" fill="rgba(236,232,255,.3)">Blog stream</text>
+<line x1="160" y1="393" x2="180" y2="393" stroke="#7C5CF3" stroke-width="1.2"/>
+<text x="186" y="397" font-family="'DM Mono',monospace" font-size="9" fill="rgba(236,232,255,.3)">Prediction stream</text>
+<line x1="310" y1="393" x2="330" y2="393" stroke="#F5C542" stroke-width="1.2"/>
+<text x="336" y="397" font-family="'DM Mono',monospace" font-size="9" fill="rgba(236,232,255,.3)">Human gate</text>
+</svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SEO SECTION ═══════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>04</span> The SEO Engine</div>
+    <h2 class="s-title">Not a prompt.<br><em>A system.</em></h2>
+    <div class="seo-grid">
+      <div>
+        <div class="seo-body">
+          <p>The SEO optimiser is the most carefully engineered part of the pipeline. It isn't a single AI call with a keyword list — it's a multi-pass review chain, each stage with a specific mandate, built from months of understanding what actually ranks in crypto search.</p>
+          <p>The output isn't just readable. It's structured to rank — correct heading hierarchy, keyword placement that reads naturally, meta descriptions that drive clicks, internal linking woven in, and readability calibrated for a technically literate but non-expert audience.</p>
+          <p>Every published post exits the system with an SEO score above a minimum threshold. Posts that don't pass are flagged for human review rather than silently published at lower quality.</p>
+        </div>
+        <div class="seo-steps">
+          <div class="seo-step">
+            <div class="seo-num">01</div>
+            <div class="seo-content">
+              <div class="seo-step-title">Keyword extraction & intent mapping</div>
+              <div class="seo-step-body">Identifies primary and secondary keywords from the day's scraped data. Maps search intent — informational, price-check, news — and selects the correct content angle to match what people are actually searching for that morning.</div>
+            </div>
+          </div>
+          <div class="seo-step">
+            <div class="seo-num">02</div>
+            <div class="seo-content">
+              <div class="seo-step-title">Structure & heading optimisation</div>
+              <div class="seo-step-body">Enforces correct H1/H2/H3 hierarchy. Ensures the primary keyword appears in the title, first 100 words, and at least two subheadings. Checks keyword density stays in the 1.5–2.5% natural range.</div>
+            </div>
+          </div>
+          <div class="seo-step">
+            <div class="seo-num">03</div>
+            <div class="seo-content">
+              <div class="seo-step-title">Meta & snippet generation</div>
+              <div class="seo-step-body">Writes a meta title under 60 characters and meta description under 155 characters — both optimised for click-through rate, not just keyword inclusion. Also generates FAQ schema markup for rich result eligibility.</div>
+            </div>
+          </div>
+          <div class="seo-step">
+            <div class="seo-num">04</div>
+            <div class="seo-content">
+              <div class="seo-step-title">Internal link weaving</div>
+              <div class="seo-step-body">Cross-references the existing article database and suggests contextually relevant internal links — ensuring every new post strengthens the site's topical authority cluster rather than sitting as an isolated page.</div>
+            </div>
+          </div>
+          <div class="seo-step">
+            <div class="seo-num">05</div>
+            <div class="seo-content">
+              <div class="seo-step-title">Readability pass & score gate</div>
+              <div class="seo-step-body">Final pass checks sentence length, passive voice ratio, paragraph density, and Flesch reading ease. If the combined SEO score doesn't clear the threshold, the post is flagged for human edit rather than passed to the database.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog mock panel -->
+      <div>
+        <div class="blog-mock">
+          <div class="blog-mock-bar">
+            <div class="blog-mock-title">Content Queue · ethereum.pk</div>
+            <div class="blog-status">
+              <div class="status-dot ready"></div>
+              <span style="color:var(--acc2)">2 ready to publish</span>
+            </div>
+          </div>
+
+          <div class="blog-list">
+
+            <div class="blog-item">
+              <div class="blog-item-row">
+                <div class="blog-item-title">Bitcoin Breaks $72K Resistance — What Pakistani Investors Need to Know</div>
+                <span class="blog-tag ready">Ready</span>
+              </div>
+              <div class="blog-meta-row">
+                <div class="blog-meta-item">
+                  <div class="seo-score">
+                    <span style="font-size:9px;color:var(--ink-dim)">SEO</span>
+                    <div class="seo-bar"><div class="seo-bar-fill hi"></div></div>
+                    <span class="seo-score-n">92</span>
+                  </div>
+                </div>
+                <div class="blog-meta-item"><div class="dot"></div>1,240 words</div>
+                <div class="blog-meta-item"><div class="dot"></div>6 AM today</div>
+              </div>
+            </div>
+
+            <div class="blog-item">
+              <div class="blog-item-row">
+                <div class="blog-item-title">ETH Price Prediction: Sentiment Turns Bullish Ahead of Upgrade</div>
+                <span class="blog-tag ready">Ready</span>
+              </div>
+              <div class="blog-meta-row">
+                <div class="blog-meta-item">
+                  <div class="seo-score">
+                    <span style="font-size:9px;color:var(--ink-dim)">SEO</span>
+                    <div class="seo-bar"><div class="seo-bar-fill lo"></div></div>
+                    <span class="seo-score-n">85</span>
+                  </div>
+                </div>
+                <div class="blog-meta-item"><div class="dot"></div>980 words</div>
+                <div class="blog-meta-item"><div class="dot"></div>6 AM today</div>
+              </div>
+            </div>
+
+            <div class="blog-item">
+              <div class="blog-item-row">
+                <div class="blog-item-title">Crypto Market Wrap — Weekly Sentiment Report</div>
+                <span class="blog-tag review">Needs edit</span>
+              </div>
+              <div class="blog-meta-row">
+                <div class="blog-meta-item">
+                  <div class="seo-score">
+                    <span style="font-size:9px;color:var(--ink-dim)">SEO</span>
+                    <div class="seo-bar"><div class="seo-bar-fill md"></div></div>
+                    <span class="seo-score-n">71</span>
+                  </div>
+                </div>
+                <div class="blog-meta-item"><div class="dot"></div>1,080 words</div>
+                <div class="blog-meta-item"><div class="dot"></div>Below threshold</div>
+              </div>
+            </div>
+
+            <div class="blog-item" style="opacity:.5">
+              <div class="blog-item-row">
+                <div class="blog-item-title">ADA & SOL Daily Brief — Yesterday's post</div>
+                <span class="blog-tag pub">Published</span>
+              </div>
+              <div class="blog-meta-row">
+                <div class="blog-meta-item"><div class="dot"></div>Published yesterday</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="publish-btn-row">
+            <button class="pub-btn" onclick="this.textContent='✓ Published'">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Publish selected
+            </button>
+            <span class="pub-btn-note">2 posts queued · one click to go live</span>
+          </div>
+
+        </div>
+
+        <!-- Scraping sources note -->
+        <div style="margin-top:20px;background:var(--bg3);border:.5px solid var(--ink-faint);padding:18px 20px;border-radius:2px">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px">Sources scraped daily</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="font-family:var(--mono);font-size:10.5px;padding:4px 10px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim)">CoinDesk</span>
+            <span style="font-family:var(--mono);font-size:10.5px;padding:4px 10px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim)">CoinTelegraph</span>
+            <span style="font-family:var(--mono);font-size:10.5px;padding:4px 10px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim)">Twitter / X</span>
+            <span style="font-family:var(--mono);font-size:10.5px;padding:4px 10px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim)">CoinGecko API</span>
+            <span style="font-family:var(--mono);font-size:10.5px;padding:4px 10px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim)">CryptoCompare</span>
+            <span style="font-family:var(--mono);font-size:10.5px;padding:4px 10px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim)">Reddit r/crypto</span>
+            <span style="font-family:var(--mono);font-size:10.5px;padding:4px 10px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim)">Fear & Greed Index</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ METRICS ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>05</span> Results</div>
+    <h2 class="s-title">What the automation<br><em>actually changed</em></h2>
+    <div class="met-grid">
+      <div class="met-cell">
+        <div class="met-n"><span class="a">−95</span>%</div>
+        <div class="met-d">Content production time</div>
+        <div class="met-tag dn">full day → 10 min review</div>
+      </div>
+      <div class="met-cell">
+        <div class="met-n"><span class="t">Daily</span></div>
+        <div class="met-d">Publishing consistency</div>
+        <div class="met-tag up">zero missed days post-launch</div>
+      </div>
+      <div class="met-cell">
+        <div class="met-n"><span class="g">85<span style="font-size:.55em">+</span></span></div>
+        <div class="met-d">Avg. SEO score per post</div>
+        <div class="met-tag gd">threshold-gated quality</div>
+      </div>
+      <div class="met-cell">
+        <div class="met-n"><span class="a">2×</span></div>
+        <div class="met-d">Publishing volume</div>
+        <div class="met-tag up">same team, double output</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STACK ══════════════════════════════════════════════════════════ -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="s-label"><span>06</span> Technical Stack</div>
+    <h2 class="s-title">The infrastructure<br><em>underneath</em></h2>
+    <p style="color:var(--ink-dim);max-width:520px;font-size:16px;">Built around n8n as the orchestration layer, with a multi-stage AI chain for writing and a custom SEO scoring module built on top of it.</p>
+    <div class="stack-grid">
+      <span class="s-tag">n8n</span>
+      <span class="s-tag">OpenAI GPT-4o</span>
+      <span class="s-tag">Twitter / X API</span>
+      <span class="s-tag">CoinGecko API</span>
+      <span class="s-tag">Puppeteer (web scraping)</span>
+      <span class="s-tag">Cron scheduler</span>
+      <span class="s-tag">Custom SEO scoring module</span>
+      <span class="s-tag">Airtable / CMS database</span>
+      <span class="s-tag">Webhook publish trigger</span>
+      <span class="s-tag">Fear & Greed Index API</span>
+      <span class="s-tag">Reddit API</span>
+      <span class="s-tag">Custom Prompt Chains</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════════════════ -->
+<div class="wrap">
+  <div class="foot">
+    <span class="foot-name">Abdullah Mustafa</span>
+    <span class="foot-copy">Portfolio Case Study · ethereum.pk · crypto.pk · 2025</span>
+  </div>
+</div>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.story-cell').forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateY(14px);transition:opacity .6s ${i*.12}s ease,transform .6s ${i*.12}s ease`;
+    io.observe(el);
+  });
+  document.querySelectorAll('.met-cell').forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateY(16px);transition:opacity .6s ${i*.09}s ease,transform .6s ${i*.09}s ease`;
+    io.observe(el);
+  });
+  document.querySelectorAll('.seo-step').forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateX(-10px);transition:opacity .5s ${i*.07}s ease,transform .5s ${i*.07}s ease`;
+    io.observe(el);
+  });
+  document.querySelectorAll('.callout').forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateX(10px);transition:opacity .6s ${i*.1}s ease,transform .6s ${i*.1}s ease`;
+    io.observe(el);
+  });
+</script>
+</body>
+</html>

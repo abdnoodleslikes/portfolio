@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smile More Solutions — Lead Gen Engine · Abdullah Mustafa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#E8F0E8;
+  --ink-dim:rgba(232,240,232,0.43);
+  --ink-faint:rgba(232,240,232,0.10);
+  --bg:#080D08;
+  --bg2:#0E160E;
+  --bg3:#131C13;
+  --acc:#3DBE6E;
+  --acc-dim:rgba(61,190,110,0.12);
+  --acc-border:rgba(61,190,110,0.30);
+  --acc2:#78C1F3;
+  --acc2-dim:rgba(120,193,243,0.10);
+  --acc2-border:rgba(120,193,243,0.28);
+  --gold:#D4A84B;
+  --gold-dim:rgba(212,168,75,0.10);
+  --red:#E85B5B;
+  --red-dim:rgba(232,91,91,0.10);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+  --max:1120px;
+  --g:52px;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.75;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--acc);color:#fff}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
+
+/* ── HERO ── */
+.hero{padding:88px 0 108px;border-bottom:.5px solid var(--ink-faint);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-300px;right:-200px;width:720px;height:720px;background:radial-gradient(circle at center,rgba(61,190,110,0.06) 0%,transparent 66%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:360px;height:360px;background:radial-gradient(circle at center,rgba(120,193,243,0.04) 0%,transparent 70%);pointer-events:none}
+
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--acc);text-transform:uppercase;margin-bottom:38px;display:flex;align-items:center;gap:14px;opacity:0;animation:fu .7s .05s cubic-bezier(.16,1,.3,1) forwards}
+.eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--acc);flex-shrink:0}
+
+.hero-logos{display:flex;align-items:center;gap:16px;margin-bottom:32px;opacity:0;animation:fu .7s .12s cubic-bezier(.16,1,.3,1) forwards}
+.logo-pill{font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:7px 16px;border-radius:3px;font-weight:500}
+.logo-pill.eth{background:var(--acc-dim);border:.5px solid var(--acc-border);color:var(--acc)}
+.logo-pill.cry{background:var(--acc2-dim);border:.5px solid var(--acc2-border);color:var(--acc2)}
+.logo-sep{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+
+.hero-title{font-family:var(--serif);font-weight:900;font-size:clamp(60px,11vw,138px);line-height:.9;letter-spacing:-.025em;margin-bottom:28px;opacity:0;animation:fu .8s .2s cubic-bezier(.16,1,.3,1) forwards}
+.hero-title em{font-style:italic;color:var(--acc)}
+.hero-title .t2{color:var(--acc2)}
+.hero-sub{font-family:var(--serif);font-size:clamp(18px,2.2vw,25px);font-weight:300;font-style:italic;color:var(--ink-dim);max-width:580px;margin-bottom:60px;line-height:1.45;opacity:0;animation:fu .8s .28s cubic-bezier(.16,1,.3,1) forwards}
+.hero-meta{display:flex;gap:36px;flex-wrap:wrap;align-items:center;opacity:0;animation:fu .8s .36s cubic-bezier(.16,1,.3,1) forwards}
+.m-item{display:flex;flex-direction:column;gap:5px}
+.m-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim)}
+.m-val{font-size:15px;font-weight:500;color:var(--ink)}
+.m-sep{width:1px;height:38px;background:var(--ink-faint)}
+
+/* ── SECTIONS ── */
+section{padding:96px 0;border-bottom:.5px solid var(--ink-faint)}
+.s-label{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.s-label span{color:var(--acc)}
+.s-title{font-family:var(--serif);font-weight:700;font-size:clamp(32px,4.5vw,52px);line-height:1.08;letter-spacing:-.02em;margin-bottom:34px}
+.s-title em{font-style:italic;color:var(--acc)}
+
+/* ── OVERVIEW ── */
+.ov-grid{display:grid;grid-template-columns:1fr 292px;gap:80px;align-items:start}
+.ov-body{font-size:17px;line-height:1.8;color:rgba(236,232,255,.75)}
+.ov-body p+p{margin-top:22px}
+.callout{background:var(--bg3);border:.5px solid var(--ink-faint);border-left:2px solid var(--acc);padding:28px 26px;border-radius:2px}
+.callout+.callout{margin-top:12px}
+.callout.teal{border-left-color:var(--acc2)}
+.callout.gold{border-left-color:var(--gold)}
+.callout-n{font-family:var(--serif);font-size:58px;font-weight:900;line-height:1;color:var(--acc);margin-bottom:10px}
+.callout.teal .callout-n{color:var(--acc2)}
+.callout.gold .callout-n{color:var(--gold);font-size:46px}
+.callout-l{font-size:13.5px;color:var(--ink-dim);line-height:1.55}
+
+/* ── PIPELINE / FLOW ── */
+.flow-outer{margin-top:52px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.flow-svg{display:block;min-width:900px}
+
+/* ── SEO SECTION ── */
+.seo-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:56px;align-items:start}
+.seo-body{font-size:16.5px;color:rgba(236,232,255,.72)}
+.seo-body p+p{margin-top:18px}
+.seo-steps{display:flex;flex-direction:column;gap:0;margin-top:32px;border:.5px solid var(--ink-faint);border-radius:3px;overflow:hidden}
+.seo-step{display:grid;grid-template-columns:44px 1fr;align-items:stretch;border-bottom:.5px solid var(--ink-faint)}
+.seo-step:last-child{border-bottom:none}
+.seo-num{background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--acc);border-right:.5px solid var(--ink-faint);padding:18px 0;letter-spacing:.06em}
+.seo-content{padding:16px 20px}
+.seo-step-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.seo-step-body{font-size:13px;color:var(--ink-dim);line-height:1.55}
+
+/* Blog card mockup */
+.blog-mock{background:var(--bg2);border:.5px solid var(--ink-faint);border-radius:4px;overflow:hidden}
+.blog-mock-bar{background:var(--bg3);border-bottom:.5px solid var(--ink-faint);padding:11px 16px;display:flex;align-items:center;justify-content:space-between}
+.blog-mock-title{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-dim)}
+.blog-status{font-family:var(--mono);font-size:9.5px;display:flex;align-items:center;gap:6px}
+.status-dot{width:5px;height:5px;border-radius:50%}
+.status-dot.ready{background:var(--acc2);animation:pulse 2s ease-in-out infinite}
+.status-dot.review{background:var(--gold);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.blog-list{display:flex;flex-direction:column}
+.blog-item{padding:16px 18px;border-bottom:.5px solid var(--ink-faint);display:flex;flex-direction:column;gap:6px}
+.blog-item:last-child{border-bottom:none}
+.blog-item-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.blog-item-title{font-size:13px;font-weight:500;color:var(--ink);line-height:1.35;flex:1}
+.blog-tag{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0}
+.blog-tag.ready{background:var(--acc2-dim);color:var(--acc2);border:.5px solid var(--acc2-border)}
+.blog-tag.review{background:var(--gold-dim);color:var(--gold)}
+.blog-tag.pub{background:rgba(124,92,243,.12);color:var(--acc)}
+.blog-meta-row{display:flex;align-items:center;gap:12px}
+.blog-meta-item{font-family:var(--mono);font-size:9.5px;color:var(--ink-dim);display:flex;align-items:center;gap:4px}
+.blog-meta-item .dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint)}
+.seo-score{display:flex;align-items:center;gap:5px}
+.seo-bar{width:48px;height:3px;border-radius:2px;background:var(--ink-faint);overflow:hidden}
+.seo-bar-fill{height:100%;border-radius:2px}
+.seo-bar-fill.hi{background:var(--acc2);width:92%}
+.seo-bar-fill.md{background:var(--gold);width:78%}
+.seo-bar-fill.lo{background:var(--acc);width:85%}
+.seo-score-n{font-size:9.5px;color:var(--ink-dim);font-family:var(--mono)}
+
+.publish-btn-row{padding:14px 18px;border-top:.5px solid var(--ink-faint);display:flex;align-items:center;gap:10px}
+.pub-btn{background:var(--acc);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:9px 18px;border-radius:3px;border:none;cursor:pointer;transition:opacity .2s;display:flex;align-items:center;gap:7px}
+.pub-btn:hover{opacity:.85}
+.pub-btn-note{font-family:var(--mono);font-size:10px;color:var(--ink-dim)}
+
+/* ── METRICS ── */
+.met-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink-faint);margin-top:56px;border:.5px solid var(--ink-faint)}
+.met-cell{background:var(--bg);padding:42px 32px}
+.met-n{font-family:var(--serif);font-size:clamp(42px,5vw,64px);font-weight:900;line-height:1;color:var(--ink);margin-bottom:13px;letter-spacing:-.02em}
+.met-n .a{color:var(--acc)}
+.met-n .t{color:var(--acc2)}
+.met-n .g{color:var(--gold)}
+.met-d{font-size:13px;color:var(--ink-dim);line-height:1.6;font-family:var(--mono)}
+.met-tag{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10.5px;padding:3px 9px;border-radius:2px;margin-top:12px}
+.met-tag.dn{background:var(--acc-dim);color:var(--acc)}
+.met-tag.up{background:var(--acc2-dim);color:var(--acc2)}
+.met-tag.gd{background:var(--gold-dim);color:var(--gold)}
+
+/* ── STACK ── */
+.stack-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:42px}
+.s-tag{font-family:var(--mono);font-size:11.5px;padding:8px 14px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim);letter-spacing:.04em;transition:border-color .2s,color .2s;cursor:default}
+.s-tag:hover{border-color:var(--acc-border);color:var(--acc)}
+
+/* ── FOOTER ── */
+.foot{padding:52px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot-name{font-family:var(--serif);font-size:18px;font-weight:700}
+.foot-copy{font-family:var(--mono);font-size:11px;color:var(--ink-dim)}
+
+/* ── STORY ── */
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink-faint);margin-top:56px;border:.5px solid var(--ink-faint)}
+.story-cell{background:var(--bg);padding:44px 38px;position:relative}
+.story-beat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.story-beat-line{height:1px;width:20px;flex-shrink:0}
+.story-beat.before .story-beat-line{background:var(--red)}
+.story-beat.before span{color:var(--red)}
+.story-beat.shift .story-beat-line{background:var(--acc)}
+.story-beat.shift span{color:var(--acc)}
+.story-beat.after .story-beat-line{background:var(--acc2)}
+.story-beat.after span{color:var(--acc2)}
+.story-heading{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.15;margin-bottom:18px;letter-spacing:-.01em}
+.story-body{font-size:15px;color:rgba(236,232,255,.68);line-height:1.75}
+.story-body p+p{margin-top:14px}
+.story-pull{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--ink-dim);border-left:2px solid var(--acc);padding-left:18px;margin-top:22px;line-height:1.5}
+.story-pull.teal{border-left-color:var(--acc2)}
+
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:960px){
+  :root{--g:28px}
+  .ov-grid,.seo-grid{grid-template-columns:1fr;gap:44px}
+  .met-grid{grid-template-columns:1fr 1fr}
+  .story-grid{grid-template-columns:1fr}
+  .hero-title{font-size:62px}
+}
+@media(max-width:600px){
+  .met-grid{grid-template-columns:1fr}
+  .hero-title{font-size:46px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Case Study &nbsp;·&nbsp; Lead Generation &amp; Data Enrichment</div>
+    <div class="hero-logos">
+      <span class="logo-pill eth">Smile More Solutions</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-pill cry">Florida, USA</span>
+    </div>
+    <h1 class="hero-title">Leads.<br><em>Enriched.</em><br>Delivered.</h1>
+    <p class="hero-sub">A keyword-driven lead engine that scrapes, validates, enriches, and pushes contact data — including the top decision-makers — straight into GHL. No manual database work. Ever again.</p>
+    <div class="hero-meta">
+      <div class="m-item"><span class="m-lbl">Client</span><span class="m-val">Smile More Solutions</span></div>
+      <div class="m-sep"></div>
+      <div class="m-item"><span class="m-lbl">Industry</span><span class="m-val">Marketing Agency · Florida</span></div>
+      <div class="m-sep"></div>
+      <div class="m-item"><span class="m-lbl">Role</span><span class="m-val">Automation Architect</span></div>
+      <div class="m-sep"></div>
+      <div class="m-item"><span class="m-lbl">Year</span><span class="m-val">2025</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ OVERVIEW ══════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>01</span> Overview</div>
+    <div class="ov-grid">
+      <div>
+        <h2 class="s-title">A lead gen team doing<br><em>a machine's job</em></h2>
+        <div class="ov-body">
+          <p>Smile More Solutions is a Florida-based marketing agency that lives and dies by its pipeline. Their lead generation workflow relied on purchasing bulk contact databases — lists that were never quite right, never fully current, and always required hours of manual enrichment before anyone could actually do anything with them.</p>
+          <p>The team would take a raw list, then manually search for email addresses, verify them one by one, hunt for phone numbers, try to identify who at the company was worth reaching — all before a single outreach message was sent. The work was tedious, inconsistent, and bottlenecked by whoever had time to do it that day.</p>
+          <p>What was built is an on-demand lead engine: the user types a keyword and a location, sets how deep they want the enrichment to go, and specifies how many leads they need. The system does the rest — scraping, validating, enriching, finding decision-makers, and pushing everything directly into their GoHighLevel CRM, ready to work.</p>
+        </div>
+      </div>
+      <div>
+        <div class="callout">
+          <div class="callout-n">5</div>
+          <div class="callout-l">Decision-makers found per business — scraped in descending order of authority, so the highest-ranking contact always comes first.</div>
+        </div>
+        <div class="callout teal">
+          <div class="callout-n">100%</div>
+          <div class="callout-l">Of email addresses are validity-checked before entering the CRM — no bounced emails, no wasted outreach, no reputation damage from bad lists.</div>
+        </div>
+        <div class="callout gold">
+          <div class="callout-n">Zero</div>
+          <div class="callout-l">Manual database enrichment. The team types a keyword, sets their parameters, and the system returns a fully enriched, CRM-ready lead list.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ STORY ════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>02</span> The Story</div>
+    <h2 class="s-title">Before, during,<br><em>and after</em></h2>
+    <div class="story-grid">
+
+      <div class="story-cell">
+        <div class="story-beat before"><div class="story-beat-line"></div><span>Before</span></div>
+        <div class="story-heading">Paying for data they still had to build themselves</div>
+        <div class="story-body">
+          <p>The agency's lead workflow started with a purchase — a database subscription, a scraped list, a CSV from some provider. The problem was that no list ever arrived ready to use. Email addresses needed verifying. Phone numbers were missing or wrong. The name on the record was the company, not a person. Nobody knew who at that company was actually worth calling.</p>
+          <p>So the team would sit down and enrich. They'd Google the business, find a website, look for a contact page, check LinkedIn for employees, try to identify a decision-maker. Then verify the email. Then log it all. Per lead, that process took minutes. Across hundreds of leads per campaign, it consumed days.</p>
+          <p>Worse, the quality was inconsistent — different team members enriched differently, some went deeper than others, and there was no standard for what "ready" actually meant before a lead went into GHL.</p>
+        </div>
+        <div class="story-pull" style="border-left-color:var(--red)">They were paying twice for every lead — once to get the name, and again in labour to make it usable.</div>
+      </div>
+
+      <div class="story-cell">
+        <div class="story-beat shift"><div class="story-beat-line"></div><span>The shift</span></div>
+        <div class="story-heading">The data exists. The problem was retrieval, not research.</div>
+        <div class="story-body">
+          <p>Every piece of information the team was manually hunting for — business emails, phone numbers, LinkedIn profiles, employee names and titles — is publicly available. The bottleneck wasn't that the data didn't exist. It was that retrieving it required a human to go find it every single time.</p>
+          <p>The reframe was straightforward: build a system that does the retrieval automatically, to a consistent standard, faster than any person could. The user defines what they want — the keyword, the location, how deep to enrich, how many leads — and the system executes against that spec at machine speed.</p>
+          <p>The decision-maker logic was the key differentiator. Most tools return a company contact. This system goes further — finding up to five people at the business and ranking them by authority, so the highest-value contact always surfaces first. A CEO before a receptionist. A marketing director before a coordinator.</p>
+        </div>
+        <div class="story-pull" style="border-left-color:var(--acc)">The insight wasn't a new data source. It was automating the exact retrieval steps the team was already doing — just systematically, instantly, and at any scale.</div>
+      </div>
+
+      <div class="story-cell">
+        <div class="story-beat after"><div class="story-beat-line"></div><span>After</span></div>
+        <div class="story-heading">A keyword and a location. A fully enriched list in GHL.</div>
+        <div class="story-body">
+          <p>Now a campaign starts differently. Someone on the team opens the interface, types the niche and city — "dental clinics, Miami" — sets enrichment depth and lead count, and runs it. The system scrapes matching businesses, validates every email address, pulls phone numbers, finds the LinkedIn profiles of up to five employees per company, ranks them by seniority, and pushes the entire structured dataset into GHL.</p>
+          <p>What comes out the other end isn't a raw list. It's a contact record with a verified email, a phone number, the business socials, and the names and profiles of the people most likely to say yes — in order of who to call first.</p>
+          <p>The team went from spending days on enrichment to spending that time on outreach. The quality floor on every lead is now consistent and defined by the system, not by whoever happened to be enriching that day.</p>
+        </div>
+        <div class="story-pull" style="border-left-color:var(--acc)">From bulk databases that needed days of manual work — to a targeted, fully enriched, decision-maker-first lead list, ready in minutes.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ THE ENGINE ════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>03</span> How It Works</div>
+    <h2 class="s-title">Keyword in.<br><em>Decision-makers out.</em></h2>
+    <p style="color:var(--ink-dim);max-width:540px;font-size:16px;margin-top:-8px;">The user sets four parameters. The system runs seven enrichment stages. Everything lands in GHL, structured and ready.</p>
+  </div>
+
+  <!-- INPUT PANEL -->
+  <div class="wrap" style="margin-top:52px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+
+      <!-- Input UI mock -->
+      <div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:18px;">User inputs</div>
+        <div style="background:var(--bg3);border:.5px solid var(--ink-faint);border-radius:4px;overflow:hidden;">
+          <div style="padding:14px 18px;border-bottom:.5px solid var(--ink-faint);font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-dim);display:flex;align-items:center;gap:7px;">
+            <div style="width:5px;height:5px;border-radius:50%;background:var(--acc);animation:pulse 2s ease-in-out infinite"></div>
+            Lead Gen Engine · Smile More Solutions
+          </div>
+          <div style="padding:22px 20px;display:flex;flex-direction:column;gap:16px;">
+            <div>
+              <div style="font-family:var(--mono);font-size:9.5px;color:var(--ink-dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;">Keyword / niche</div>
+              <div style="background:var(--bg2);border:.5px solid var(--acc-border);border-radius:3px;padding:10px 14px;font-size:14px;color:var(--ink);display:flex;align-items:center;justify-content:space-between;">
+                dental clinics
+                <span style="font-family:var(--mono);font-size:10px;color:var(--acc);">✓</span>
+              </div>
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:9.5px;color:var(--ink-dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;">Target location</div>
+              <div style="background:var(--bg2);border:.5px solid var(--ink-faint);border-radius:3px;padding:10px 14px;font-size:14px;color:var(--ink);">Miami, FL</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div>
+                <div style="font-family:var(--mono);font-size:9.5px;color:var(--ink-dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;">Enrichment level</div>
+                <div style="background:var(--bg2);border:.5px solid var(--ink-faint);border-radius:3px;padding:10px 14px;font-size:14px;color:var(--ink);display:flex;align-items:center;gap:8px;">
+                  <span style="font-family:var(--mono);font-size:11px;color:var(--acc);">●●●</span> Deep
+                </div>
+              </div>
+              <div>
+                <div style="font-family:var(--mono);font-size:9.5px;color:var(--ink-dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;">No. of leads</div>
+                <div style="background:var(--bg2);border:.5px solid var(--ink-faint);border-radius:3px;padding:10px 14px;font-size:14px;color:var(--ink);">150</div>
+              </div>
+            </div>
+            <button style="background:var(--acc);color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.07em;padding:12px 20px;border-radius:3px;border:none;cursor:pointer;width:100%;margin-top:4px;">Run Lead Engine →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- What happens explained -->
+      <div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:18px;">What runs after you click</div>
+        <div style="display:flex;flex-direction:column;gap:0;border:.5px solid var(--ink-faint);border-radius:3px;overflow:hidden;">
+
+          <div style="display:grid;grid-template-columns:38px 1fr;border-bottom:.5px solid var(--ink-faint);">
+            <div style="background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--acc);border-right:.5px solid var(--ink-faint);">01</div>
+            <div style="padding:13px 16px;">
+              <div style="font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:3px;">Scrape matching businesses</div>
+              <div style="font-size:12.5px;color:var(--ink-dim);line-height:1.55;">Google Maps + local directories scraped for businesses matching the keyword in the target area.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:38px 1fr;border-bottom:.5px solid var(--ink-faint);">
+            <div style="background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--acc);border-right:.5px solid var(--ink-faint);">02</div>
+            <div style="padding:13px 16px;">
+              <div style="font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:3px;">Email validity check</div>
+              <div style="font-size:12.5px;color:var(--ink-dim);line-height:1.55;">Every email found is run through a validity checker. Invalid addresses are dropped before anything enters the CRM.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:38px 1fr;border-bottom:.5px solid var(--ink-faint);">
+            <div style="background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--acc);border-right:.5px solid var(--ink-faint);">03</div>
+            <div style="padding:13px 16px;">
+              <div style="font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:3px;">Phone number search</div>
+              <div style="font-size:12.5px;color:var(--ink-dim);line-height:1.55;">Business phone numbers pulled from listings, websites, and directory sources.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:38px 1fr;border-bottom:.5px solid var(--ink-faint);">
+            <div style="background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--acc);border-right:.5px solid var(--ink-faint);">04</div>
+            <div style="padding:13px 16px;">
+              <div style="font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:3px;">Social media profiles</div>
+              <div style="font-size:12.5px;color:var(--ink-dim);line-height:1.55;">Business LinkedIn, Instagram, Facebook, and website pulled and stored per lead.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:38px 1fr;border-bottom:.5px solid var(--ink-faint);">
+            <div style="background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--acc);border-right:.5px solid var(--ink-faint);">05</div>
+            <div style="padding:13px 16px;">
+              <div style="font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:3px;">Decision-maker discovery</div>
+              <div style="font-size:12.5px;color:var(--ink-dim);line-height:1.55;">Up to 5 employees found per business via LinkedIn, ranked by authority — CEO first, then directors, managers, and below. Name, title, profile, and contact details per person.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:38px 1fr;">
+            <div style="background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--acc);border-right:.5px solid var(--ink-faint);">06</div>
+            <div style="padding:13px 16px;">
+              <div style="font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:3px;">Push to GoHighLevel CRM</div>
+              <div style="font-size:12.5px;color:var(--ink-dim);line-height:1.55;">Every enriched lead pushed directly into GHL as a structured contact record — tagged, categorised, and ready for outreach sequences.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GHL output mockup -->
+  <div class="wrap" style="margin-top:48px;">
+    <div style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:18px;">Sample output — GHL contact record</div>
+    <div style="background:var(--bg2);border:.5px solid var(--ink-faint);border-radius:4px;overflow:hidden;">
+      <div style="background:var(--bg3);padding:12px 18px;border-bottom:.5px solid var(--ink-faint);display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-family:var(--mono);font-size:10px;color:var(--ink-dim);letter-spacing:.09em;text-transform:uppercase;">GoHighLevel · Contact Record</span>
+        <span style="font-family:var(--mono);font-size:9px;padding:3px 9px;border-radius:2px;background:var(--acc-dim);color:var(--acc);border:.5px solid var(--acc-border);">Auto-enriched</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
+
+        <div style="padding:20px 22px;border-right:.5px solid var(--ink-faint);">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;">Business</div>
+          <div style="font-size:15px;font-weight:500;color:var(--ink);margin-bottom:6px;">Brickell Dental Group</div>
+          <div style="font-size:12.5px;color:var(--ink-dim);font-family:var(--mono);margin-bottom:4px;">📍 Miami, FL 33131</div>
+          <div style="font-size:12.5px;color:var(--ink-dim);font-family:var(--mono);margin-bottom:4px;">📞 (305) 555-0182</div>
+          <div style="font-size:12.5px;color:var(--acc);font-family:var(--mono);margin-bottom:4px;">✓ info@brickelldentalgroup.com</div>
+          <div style="display:flex;gap:5px;margin-top:10px;flex-wrap:wrap;">
+            <span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim);">LinkedIn</span>
+            <span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim);">Instagram</span>
+            <span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border:.5px solid var(--ink-faint);border-radius:2px;color:var(--ink-dim);">Website</span>
+          </div>
+        </div>
+
+        <div style="padding:20px 22px;border-right:.5px solid var(--ink-faint);">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;">Decision-makers · by authority</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:rgba(61,190,110,.15);border:.5px solid var(--acc-border);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--acc);flex-shrink:0;">1</div>
+              <div>
+                <div style="font-size:12.5px;font-weight:500;color:var(--ink);">Dr. Carlos Vega</div>
+                <div style="font-size:11px;color:var(--ink-dim);font-family:var(--mono);">Owner · DDS</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:rgba(61,190,110,.08);border:.5px solid var(--ink-faint);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--ink-dim);flex-shrink:0;">2</div>
+              <div>
+                <div style="font-size:12.5px;font-weight:500;color:var(--ink);">Maria Gonzalez</div>
+                <div style="font-size:11px;color:var(--ink-dim);font-family:var(--mono);">Practice Manager</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:rgba(61,190,110,.05);border:.5px solid var(--ink-faint);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--ink-dim);flex-shrink:0;">3</div>
+              <div>
+                <div style="font-size:12.5px;font-weight:500;color:var(--ink);">James Ruiz</div>
+                <div style="font-size:11px;color:var(--ink-dim);font-family:var(--mono);">Marketing Coordinator</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:20px 22px;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;">Enrichment status</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:12.5px;color:var(--ink-dim);">Email valid</span>
+              <span style="font-family:var(--mono);font-size:11px;color:var(--acc);">✓ Verified</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:12.5px;color:var(--ink-dim);">Phone found</span>
+              <span style="font-family:var(--mono);font-size:11px;color:var(--acc);">✓ Found</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:12.5px;color:var(--ink-dim);">Socials</span>
+              <span style="font-family:var(--mono);font-size:11px;color:var(--acc);">✓ 3 found</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:12.5px;color:var(--ink-dim);">Decision-makers</span>
+              <span style="font-family:var(--mono);font-size:11px;color:var(--acc);">✓ 3 / 5</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:12.5px;color:var(--ink-dim);">GHL sync</span>
+              <span style="font-family:var(--mono);font-size:11px;color:var(--acc);">✓ Pushed</span>
+            </div>
+            <div style="margin-top:10px;padding:8px 12px;background:var(--acc-dim);border:.5px solid var(--acc-border);border-radius:2px;font-family:var(--mono);font-size:10px;color:var(--acc);">Ready for outreach</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ METRICS ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span>04</span> Results</div>
+    <h2 class="s-title">What the engine<br><em>changed</em></h2>
+    <div class="met-grid">
+      <div class="met-cell">
+        <div class="met-n"><span class="a">−95</span>%</div>
+        <div class="met-d">Enrichment time per lead</div>
+        <div class="met-tag dn">days of work → minutes</div>
+      </div>
+      <div class="met-cell">
+        <div class="met-n"><span class="t">5×</span></div>
+        <div class="met-d">Decision-makers per lead</div>
+        <div class="met-tag up">ranked by authority</div>
+      </div>
+      <div class="met-cell">
+        <div class="met-n"><span class="a">100</span>%</div>
+        <div class="met-d">Email validity rate</div>
+        <div class="met-tag up">checked before CRM entry</div>
+      </div>
+      <div class="met-cell">
+        <div class="met-n"><span class="a">Zero</span></div>
+        <div class="met-d">Manual database work</div>
+        <div class="met-tag dn">fully automated end-to-end</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STACK ══════════════════════════════════════════════════════════ -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="s-label"><span>05</span> Technical Stack</div>
+    <h2 class="s-title">The infrastructure<br><em>underneath</em></h2>
+    <p style="color:var(--ink-dim);max-width:520px;font-size:16px;">Built to be fast, accurate, and tolerant of the messiness of real public data — with n8n orchestrating every enrichment stage.</p>
+    <div class="stack-grid">
+      <span class="s-tag">n8n</span>
+      <span class="s-tag">Google Maps API</span>
+      <span class="s-tag">LinkedIn Scraping</span>
+      <span class="s-tag">Email Validity API</span>
+      <span class="s-tag">Phone Number Lookup</span>
+      <span class="s-tag">GoHighLevel API</span>
+      <span class="s-tag">OpenAI GPT-4o</span>
+      <span class="s-tag">Puppeteer (web scraping)</span>
+      <span class="s-tag">Hunter.io</span>
+      <span class="s-tag">Webhook Triggers</span>
+      <span class="s-tag">Custom Ranking Logic</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════════════════ -->
+<div class="wrap">
+  <div class="foot">
+    <span class="foot-name">Abdullah Mustafa</span>
+    <span class="foot-copy">Portfolio Case Study · Smile More Solutions · 2025</span>
+  </div>
+</div>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.story-cell').forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateY(14px);transition:opacity .6s ${i*.12}s ease,transform .6s ${i*.12}s ease`;
+    io.observe(el);
+  });
+  document.querySelectorAll('.met-cell').forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateY(16px);transition:opacity .6s ${i*.09}s ease,transform .6s ${i*.09}s ease`;
+    io.observe(el);
+  });
+  document.querySelectorAll('.callout').forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateX(10px);transition:opacity .6s ${i*.1}s ease,transform .6s ${i*.1}s ease`;
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
